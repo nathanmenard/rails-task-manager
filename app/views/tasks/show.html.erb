@@ -1,0 +1,27 @@
+<h1>Task page</h1>
+
+<ul>
+  <li><strong>Name:</strong> <%= @task[:title] %></li>
+  <li><strong>Address:</strong> <%= @task[:details] %></li>
+</ul>
+
+
+<%= @status %>
+<%=
+if @task[:completed] == true
+  "Task completed!"
+else
+  "Task not completed"
+  link_to 'Mark as completed', mark_as_done_path(@task), method: :patch
+end
+ %>
+ <br>
+
+
+<br>
+<br>
+<%= link_to 'Edit', edit_task_path %>
+<br>
+<%= link_to 'Back to list', tasks_path %>
+
+
